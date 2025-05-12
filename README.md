@@ -26,5 +26,19 @@ So,  in our example, `A:1RB1R!` dictates that if the program is in state `A`, if
 Additionally to defining rules for how the machine behaves, you can tweak the rules of how the simulation that it lives in will act, callled `config parameters`.
 
 E.g.
-- [x] hi
-- [ ] hello
+```
+@loop:y
+@size:100
+@init:A
+A:1RB1R!
+B:0RC1RB
+C:1LC1LA
+```
+all paramater declarations start with the `@` symbol, followed by an identifier, and then a `:` with the value for this parameter afterwards, which may be an `integer`, `string` or `boolean` type. For a boolean, `0`, or a string starting with either `n` or `f` may be used to indicate a falsy value, and `1`, `y`, or `t` may be used as a truthy value.
+#### List of parameters
+
+| Paramater Identifier | Type     | Description
+|-|-|-
+|`size`|`integer`|The size of the tape in the machine
+|`loop`|`boolean`|Whether or not to loop to the other side of the tape if either edge is encountered. If false no movement will take place at all.
+``
